@@ -63,7 +63,7 @@ INSERT INTO Enrollment VALUES('45678', 'CSC211', '02-Jan-2011');
 
 ALTER TABLE Student
   ADD CONSTRAINT CheckName
-	  CHECK (Name IS NOT NULL);
+      CHECK (Name IS NOT NULL);
 
 ALTER TABLE Student 
   ADD CONSTRAINT BadConstraint Unique(Name);
@@ -76,8 +76,8 @@ ALTER TABLE Student
   ADD Address VARCHAR2(15);
 
 ALTER TABLE Student
-	ADD (Income NUMBER(5, 2),
-		 Taxes NUMBER(5));
+  ADD (Income NUMBER(5, 2),
+       Taxes NUMBER(5));
 
 ALTER TABLE Student
   DROP COLUMN Address;
@@ -106,7 +106,7 @@ ALTER TABLE Enrollment
   MODIFY CourseID VARCHAR2(40);
 
 ALTER TABLE Enrollment
-    RENAME Column Enrolled to EnrolledDate;    
+    RENAME Column Enrolled TO EnrolledDate;    
 
 
 -- Part 2 Update and Delete
@@ -132,10 +132,10 @@ CREATE TABLE Transaction
   Amount NUMBER(*, 2),
 
   CONSTRAINT DateCheck
-     Check (TDate > To_Date('01-Jan-2010')),
+     CHECK (TDate > TO_DATE('01-Jan-2010')),
      
   CONSTRAINT AmountCheck
-     Check (Amount > 0.00),
+     CHECK (Amount > 0.00),
      
   CONSTRAINT Transaction_ID
      PRIMARY KEY (StoreID, TransID),
@@ -200,10 +200,10 @@ DELETE FROM Transaction
   WHERE TransID = 1;
 
 DELETE FROM Transaction
-  WHERE TDate <= to_date('11-Oct-2011');
+  WHERE TDate <= TO_DATE('11-Oct-2011');
 
 DELETE FROM Transaction
-  WHERE TDate != to_date('12-Oct-2011');   
+  WHERE TDate != TO_DATE('12-Oct-2011');   
 
 UPDATE Transaction 
   SET Amount = -4 
@@ -225,15 +225,15 @@ SELECT * FROM Store
   WHERE City LIKE 'B__st__';
 
 SELECT * FROM Store
-  WHERE (state = 'IL' OR city = 'Portland')
+  WHERE (State = 'IL' OR City = 'Portland')
          AND StoreID != 100;
  
 SELECT * FROM Store
   ORDER BY State, City;
   
-SELECT DISTINCT city
-  FROM store
-  WHERE state = 'IL' OR state = 'ME';
+SELECT DISTINCT City
+  FROM Store
+  WHERE State = 'IL' OR State = 'ME';
 
 SELECT TDate, Amount 
   FROM Transaction;
@@ -273,27 +273,27 @@ SELECT COUNT(DISTINCT State)
 SELECT SUM(Amount)
   FROM Transaction
   WHERE Amount <= 20 
-        or Amount >= 100;
+        OR Amount >= 100;
 
 SELECT AVG(Amount)
   FROM Transaction
-  WHERE TDate = to_date('11-Oct-2011');
+  WHERE TDate = TO_DATE('11-Oct-2011');
 
 SELECT MIN(Amount)
   FROM Transaction
-  WHERE TDate = to_date('12-Oct-2011');
+  WHERE TDate = TO_DATE('12-Oct-2011');
 
 SELECT MAX(Amount)
   FROM Transaction
-  WHERE TDate = to_date('10-Oct-2011');
+  WHERE TDate = TO_DATE('10-Oct-2011');
 
 SELECT MAX(Amount)
   FROM Transaction
   WHERE Amount < 55;
 
-SELECT state, COUNT(StoreID)
+SELECT State, COUNT(StoreID)
   FROM Store
-  GROUP BY state;
+  GROUP BY State;
 
 SELECT TDate, SUM(Amount)
   FROM Transaction
