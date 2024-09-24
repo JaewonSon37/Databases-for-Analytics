@@ -35,7 +35,7 @@ SELECT AName
 
 
 -- Part 1-b
--- Find both the rare and exotic animals
+-- Find both the 'rare' and 'exotic' animals
 SELECT AName, ACategory
   FROM Animal
   WHERE ACategory = 'rare' OR ACategory = 'exotic';
@@ -76,7 +76,7 @@ SELECT COUNT(*) AS NullCount
 
 
 -- Part 1-h
--- Find all animals named 'Alpaca', 'Llama' or any other animals that are not listed as exotic
+-- Find all animals named 'Alpaca', 'Llama' or any other animals that are not listed as 'exotic'
 SELECT AName, ACategory
   FROM Animal
   WHERE AName IN ('Alpaca', 'Llama')
