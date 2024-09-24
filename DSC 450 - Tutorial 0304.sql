@@ -106,7 +106,7 @@ ALTER TABLE Enrollment
   MODIFY CourseID VARCHAR2(40);
 
 ALTER TABLE Enrollment
-    RENAME Column Enrolled TO EnrolledDate;    
+  RENAME Column Enrolled TO EnrolledDate;    
 
 
 -- Part 2 Update and Delete
