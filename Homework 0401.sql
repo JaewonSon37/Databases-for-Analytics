@@ -141,11 +141,11 @@ SELECT Assigned, ZName, AName
 /*
 # Person Table
 Attributes: (First, Last, Address)
-Functional Dependency: First, Last ¡æ Address
+Functional Dependency: First, Last Â¡Ã¦ Address
 
 # Job Table
 Attributes: (Job, Salary, Assistant)
-Functional Dependency: Job ¡æ Salary, Assistant
+Functional Dependency: Job Â¡Ã¦ Salary, Assistant
 */
 
 
