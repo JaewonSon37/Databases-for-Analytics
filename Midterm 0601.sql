@@ -3,7 +3,7 @@
 PurchaseAmt DECIMAL(4, 2) CHECK (PurchaseAmt > 0 AND PurchaseAmt <= 99.99);
 
 -- Part 2-b
--- Write a SQL column definition that ensures that the street address is up to 18 characters and has to start from ¡®rue¡¯ 
+-- Write a SQL column definition that ensures that the street address is up to 18 characters and has to start from Â¡Â®rueÂ¡Â¯ 
 Street VARCHAR(18) CHECK (Street LIKE 'rue%');
 
 -- Part 2-c1
@@ -14,7 +14,7 @@ SELECT StudentID, Name
                        FROM Student);
 
 -- Part 2-c2
--- Display student names and their taken course names for all students with the middle name of ¡®Muriel¡¯. Your query output should be sorted by grade
+-- Display student names and their taken course names for all students with the middle name of Â¡Â®MurielÂ¡Â¯. Your query output should be sorted by grade
 SELECT S.Name, G.CName
   FROM Student S
        JOIN Grade G ON S.StudentID = G.StudentID
@@ -22,7 +22,7 @@ SELECT S.Name, G.CName
   ORDER BY G.CGrade;
 
 -- Part 2-c3
--- For students who are either not enrolled in any courses or are enrolled in only 1 course, list those students¡¯ names and graduation years
+-- For students who are either not enrolled in any courses or are enrolled in only 1 course, list those studentsÂ¡Â¯ names and graduation years
 SELECT S.Name, S.GradYear
   FROM Student S
        LEFT JOIN Grad G ON S.StudentID = G.StudentID
